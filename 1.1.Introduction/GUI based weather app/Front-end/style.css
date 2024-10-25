@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: rgb(6, 14, 20);
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+header h1 {
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.weather-app {
+    background-color: rgb(14, 30, 44);
+    border-radius: 40px;
+    padding: 20px;
+    width: 320px;
+    text-align: center;
+}
+
+.weather-panel h2 {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+input#cityName {
+    margin: 10px 0;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+button#startBtn {
+    background-color: rgb(81, 43, 212);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button#startBtn:hover {
+    background-color: rgb(27, 37, 212);
+}
+
+.result-board {
+    margin-top: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.forecast-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.forecast-section h2 {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.forecasts {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.forecast {
+    background-color: rgb(14, 30, 44);
+    border-radius: 20px;
+    padding: 10px;
+    width: 80px;
+    text-align: center;
+}
+
+.forecast h3 {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.forecast p {
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgb(200, 200, 200);
+}

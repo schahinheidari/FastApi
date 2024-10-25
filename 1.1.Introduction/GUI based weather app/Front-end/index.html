@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Based Weather App</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Based Weather App</h1>
+        </header>
+
+        <section class="weather-app">
+            <div class="weather-panel">
+                <h2>City:</h2>
+                <input type="text" id="cityName" placeholder="Enter city name">
+                <button id="startBtn">Start</button>
+                <div class="result-board" id="resultBoard">
+                    <!-- Weather result will be displayed here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="forecast-section">
+            <h2>Forecasts for the Next 3 Days</h2>
+            <div class="forecasts">
+                <div class="forecast">
+                    <h3>1 Day</h3>
+                    <p id="day1"></p>
+                </div>
+                <div class="forecast">
+                    <h3>2 Days</h3>
+                    <p id="day2"></p>
+                </div>
+                <div class="forecast">
+                    <h3>3 Days</h3>
+                    <p id="day3"></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('startBtn').addEventListener('click', function () {
+            const cityName = document.getElementById('cityName').value;
+
+            fetch(`/get_weather?cityName=${cityName}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('resultBoard').innerHTML = "Error fetching data";
+                    } else {
+                        document.getElementById('resultBoard').innerHTML = `
+                            <p><strong>Description:</strong> ${data.description}</p>
+                            <p><strong>Temperature:</strong> ${data.temperature}</p>
+                            <p><strong>Wind:</strong> ${data.wind}</p>
+                        `;
+                        document.getElementById('day1').innerHTML = `Temp: ${data.forecast[0].temperature}, Wind: ${data.forecast[0].wind}`;
+                        document.getElementById('day2').innerHTML = `Temp: ${data.forecast[1].temperature}, Wind: ${data.forecast[1].wind}`;
+                        document.getElementById('day3').innerHTML = `Temp: ${data.forecast[2].temperature}, Wind: ${data.forecast[2].wind}`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('resultBoard').innerHTML = "An error occurred";
+                    console.error('Error fetching weather data:', error);
+                });
+        });
+    </script>
+</body>
+</html>
