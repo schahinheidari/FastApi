@@ -1,9 +1,5 @@
-from typing import Union
-import cv2 as cv
-import numpy as np
-import io
 from fastapi import FastAPI, HTTPException, status
-from fastapi.responses import StreamingResponse, RedirectResponse
+from fastapi.responses import RedirectResponse
 
 app = FastAPI()
 
