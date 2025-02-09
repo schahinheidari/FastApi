@@ -96,7 +96,9 @@ def planets(planet_name):
     for planet in planets:
         if planet["name"] == planet_name:
             return planet
-    return "Planet not found!"
+        else:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+                              detail="Planet not found!")
 
 planets_data = [
     {"name": "Mercury", "image": "http://space-facts.com/wp-content/uploads/mercury-transparent.png"},
@@ -116,4 +118,7 @@ def get_planet_image(planet_name: str):
     for planet in planets_data:
         if planet["name"].lower() == planet_name.lower():
             return RedirectResponse(url=planet["image"])
+        else:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+                              detail="Planet not found!")
     return {"error": "Planet not found"}
