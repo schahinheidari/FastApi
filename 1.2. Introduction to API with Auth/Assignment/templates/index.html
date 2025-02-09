@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Identifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Plant Image Generator & Identifier</h1>
+        <form id="plantForm">
+            <input type="text" id="description" name="description" placeholder="Enter plant description" required>
+            <button type="submit">Generate</button>
+        </form>
+        <div id="result" class="hidden">
+            <h2>Generated Plant</h2>
+            <img id="plantImage" src="" alt="Generated Plant Image">
+            <h3 id="plantName"></h3>
+        </div>
+    </div>
+    <script src="scrip.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.ipynb_checkpoints
+.idea
+.vscode
+__pycache__
+#files
+*.mp4
+
+
+

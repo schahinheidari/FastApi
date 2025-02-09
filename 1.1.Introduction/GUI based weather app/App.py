@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import json
 import requests
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return app.send_static_file('Front-end/index.html')  # Serve index.html directly from static
+    return render_template('index.html')  # Serve index.html directly from static
 
 @app.route('/get_weather')
 def get_weather():
